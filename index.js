@@ -1,9 +1,9 @@
 //jshint esversion: 6
 
+import open, { openApp, apps } from 'open';
 const express = require("express");
 const bodyParser = require("body-parser");
 const c = require("chinpunkanpun");
-const opn = require("opn");
 const ejs = require("ejs");
 
 const app = express();
@@ -16,10 +16,10 @@ app.get("/", function (req, res) {
     res.render("main");
 });
 
-app.post("/", function (req, res) {
+app.post("/", async function (req, res) {
 
     for (let i = 0; i < 30; i++) {
-        opn("https://www.bing.com/search?q=" + c.sentence())
+        await open("https://www.bing.com/search?q=" + c.sentence())
             .then(() => {
                 console.log(c.sentence());
             })
