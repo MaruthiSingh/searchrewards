@@ -6,11 +6,12 @@ const c = require("chinpunkanpun");
 const opn = require("opn");
 
 const app = express();
+
+app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/main.html");
-
+    res.render("main");
 });
 
 app.post("/", function (req, res) {
