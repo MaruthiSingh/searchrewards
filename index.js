@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const c = require("chinpunkanpun");
 const ejs = require("ejs");
-const opn = require("opn");
+const open = require("opener");
 
 const app = express();
 
@@ -19,14 +19,8 @@ app.get("/", function (req, res) {
 app.post("/", async function (req, res) {
 
     for (let i = 0; i < 30; i++) {
-        opn("https://www.bing.com/search?q=" + c.sentence())
-            .then(() => {
-                console.log(c.sentence());
-            })
-            .catch((err) => {
-                console.error(err);
-                prompt("Error");
-            });
+        open("https://www.bing.com/search?q=" + c.sentence())
+        console.log(c.sentence());
     }
 });
 
