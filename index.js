@@ -11,6 +11,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", function (req, res) {
     res.render("main");
@@ -18,10 +19,13 @@ app.get("/", function (req, res) {
 
 app.post("/", async function (req, res) {
 
-    for (let i = 0; i < 30; i++) {
+    const num = Number(req.body.num)
+
+    for (let i = 0; i < num; i++) {
         open("https://www.bing.com/search?q=" + c.sentence())
         console.log(c.sentence());
     }
+    console.log("Close" + " ||| " + "Close");
 });
 
 app.listen(3000);
