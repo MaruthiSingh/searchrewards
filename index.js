@@ -28,4 +28,4 @@ app.post("/", async function (req, res) {
     console.log("Close" + " ||| " + "Close");
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
