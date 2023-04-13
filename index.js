@@ -23,9 +23,7 @@ app.post("/", async function (req, res) {
 
     for (let i = 0; i < num; i++) {
         open("https://www.bing.com/search?q=" + c.sentence())
-        console.log(c.sentence());
     }
-    console.log("Close" + " ||| " + "Close");
 });
 
 app.listen(process.env.PORT || 3000);
